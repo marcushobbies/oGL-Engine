@@ -1,0 +1,30 @@
+number_files=7
+
+echo -ne 'Compiling Files ('0/$number_files')\r'
+
+g++ -c tools/Logger.cpp -I headers -I headers/glm -o bin/Logger.o
+echo -ne 'Compiling Files ('1/$number_files')\r'
+
+g++ -c render/Mesh.cpp -I headers -I headers/glm -o bin/Mesh.o
+echo -ne 'Compiling Files ('3/$number_files')\r'
+
+g++ -c models/ModelLoader.cpp -I headers -I headers/glm -o bin/ModelLoader.o
+echo -ne 'Compiling Files ('3/$number_files')\r'
+
+g++ -c shaders/ShaderProgram.cpp -I headers -I headers/glm -o bin/ShaderProgram.o
+echo -ne 'Compiling Files ('4/$number_files')\r'
+
+g++ -c render/Object.cpp -I headers -I headers/glm -o bin/Object.o
+echo -ne 'Compiling Files ('5/$number_files')\r'
+
+g++ -c render/Camera.cpp -I headers -I headers/glm -o bin/Camera.o
+echo -ne 'Compiling Files ('6/$number_files')\r'
+
+g++ -c main.cpp -I headers -I headers/glm -o bin/main.o
+echo -ne 'Compiling Files ('$number_files/$number_files')\r'
+
+echo -ne '\n'
+
+echo Linking Libraries
+g++ bin/Logger.o bin/Mesh.o bin/ModelLoader.o bin/ShaderProgram.o bin/Object.o bin/Camera.o bin/main.o -o program.out -lGLEW -lGLU -lGL -lglfw
+echo Done
