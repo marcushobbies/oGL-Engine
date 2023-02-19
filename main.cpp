@@ -1,5 +1,6 @@
 /*
     Author: Marcus Porfilio
+    Made for Linux Only
 */
 
 
