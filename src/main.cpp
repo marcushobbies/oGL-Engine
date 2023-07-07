@@ -167,9 +167,9 @@ int main(){
         testObject.render(view, projection);
         testObject.update();
 
-        testObject2.render(view, projection);
+        //testObject2.render(view, projection);
         testObject2.update();
-        glm::vec3 newPos = testObject2.getPos();
+        glm::vec3 newPos = testObject.getPos();
         newPos.x = 2*sin((float)glfwGetTime()*3);
         newPos.z = 2*cos((float)glfwGetTime()*3);
 

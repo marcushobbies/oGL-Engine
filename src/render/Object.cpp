@@ -190,8 +190,8 @@ void Object::render(glm::mat4 view_, glm::mat4 projection_){
     model = glm::translate(glm::mat4(1.0f), pos);
     model = glm::rotate(model, glm::radians(angle_), rot);
     model = glm::scale(model, scale_);
-    shaderProgram.setMatrix4f("model", glm::value_ptr(model));
 
+    shaderProgram.setMatrix4f("model", glm::value_ptr(model));
     shaderProgram.setMatrix4f("view", glm::value_ptr(view));
     shaderProgram.setMatrix4f("projection", glm::value_ptr(projection));
 
