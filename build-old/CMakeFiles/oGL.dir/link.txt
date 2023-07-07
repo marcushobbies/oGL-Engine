@@ -1,1 +1,0 @@
-/usr/bin/g++ -g -rdynamic CMakeFiles/oGL.dir/main.cpp.o -o oGL   -L/home/marcus/code/oGL/include  -Wl,-rpath,/home/marcus/code/oGL/include /usr/local/lib/libglfw3.a /usr/lib/x86_64-linux-gnu/libGLEW.so /usr/lib/x86_64-linux-gnu/libGL.so -Wl,-Bstatic -lrt -Wl,-Bdynamic -lm -ldl -lX11  -ldl

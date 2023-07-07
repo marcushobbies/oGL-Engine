@@ -1,6 +1,0 @@
-/home/marcus/code/oGL/build/CMakeFiles/oGL.dir
-/home/marcus/code/oGL/build/CMakeFiles/package.dir
-/home/marcus/code/oGL/build/CMakeFiles/package_source.dir
-/home/marcus/code/oGL/build/CMakeFiles/test.dir
-/home/marcus/code/oGL/build/CMakeFiles/edit_cache.dir
-/home/marcus/code/oGL/build/CMakeFiles/rebuild_cache.dir
