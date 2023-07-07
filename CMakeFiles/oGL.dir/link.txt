@@ -1,0 +1,1 @@
+/usr/bin/c++ -rdynamic CMakeFiles/oGL.dir/main.cpp.o -o oGL 

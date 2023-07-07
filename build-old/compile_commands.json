@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/marcus/code/oGL/build",
+  "command": "/usr/bin/g++  -I/home/marcus/code/oGL/include -g -std=gnu++20 -o CMakeFiles/oGL.dir/main.cpp.o -c /home/marcus/code/oGL/main.cpp",
+  "file": "/home/marcus/code/oGL/main.cpp"
+}
+]

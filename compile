@@ -26,5 +26,5 @@ echo -ne 'Compiling Files ('$number_files/$number_files')\r'
 echo -ne '\n'
 
 echo Linking Libraries
-g++ bin/Logger.o bin/Mesh.o bin/ModelLoader.o bin/ShaderProgram.o bin/Object.o bin/Camera.o bin/main.o -o program.out -lGLEW -lGLU -lGL -lglfw
+g++ bin/Logger.o bin/Mesh.o bin/ModelLoader.o bin/ShaderProgram.o bin/Object.o bin/Camera.o bin/main.o -o program.out -lGLEW -lGLU -lGL -lglfw3 -lX11 -lXxf86vm -lXrandr -lpthread -lXi
 echo Done

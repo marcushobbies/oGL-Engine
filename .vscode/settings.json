@@ -50,8 +50,9 @@
         "sstream": "cpp",
         "cstring": "cpp",
         "ctime": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "numbers": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
-    "cmake.sourceDirectory": "${workspaceFolder}/headers/glm"
+    "cmake.sourceDirectory": "/home/marcus/code/oGL"
 }
