@@ -13,7 +13,7 @@
 					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.1.6"
 					},
 					"projectIndex" : 0,
 					"source" : "."
@@ -23,7 +23,7 @@
 					"jsonFile" : "directory-src-Debug-b6cf2213fc5053b67c22.json",
 					"minimumCMakeVersion" : 
 					{
-						"string" : "3.0.0"
+						"string" : "3.1.6"
 					},
 					"parentIndex" : 0,
 					"projectIndex" : 0,

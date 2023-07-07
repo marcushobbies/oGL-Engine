@@ -38,8 +38,13 @@ void Mesh::establishArrays(){
             workingMesh.push_back(v.position.x);
             workingMesh.push_back(v.position.y);
             workingMesh.push_back(v.position.z);
+
             workingMesh.push_back(v.textureCoords.x);
             workingMesh.push_back(v.textureCoords.y);
+
+            workingMesh.push_back(v.normal.x);
+            workingMesh.push_back(v.normal.y);
+            workingMesh.push_back(v.normal.z);
 
             addIndice(indice);
             indice++;

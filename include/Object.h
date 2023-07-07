@@ -24,6 +24,8 @@ class Object{
         void initShaders(unsigned int shaders, ...);
         void initTextures(unsigned int textures, ...);
         
+        void calculateLightingFromScene();
+
         void update();
         void render(glm::mat4 view_, glm::mat4 projection_);
 

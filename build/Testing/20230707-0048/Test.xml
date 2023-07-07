@@ -7,8 +7,8 @@
 	CompilerVersion=""
 	OSName="Linux"
 	Hostname="anypc"
-	OSRelease="6.1.0-9-amd64"
-	OSVersion="#1 SMP PREEMPT_DYNAMIC Debian 6.1.27-1 (2023-05-08)"
+	OSRelease="6.1.0-10-amd64"
+	OSVersion="#1 SMP PREEMPT_DYNAMIC Debian 6.1.37-1 (2023-07-03)"
 	OSPlatform="x86_64"
 	Is64Bits="1"
 	VendorString="AuthenticAMD"
@@ -21,14 +21,14 @@
 	TotalVirtualMemory="979"
 	TotalPhysicalMemory="31988"
 	LogicalProcessorsPerPhysical="2"
-	ProcessorClockFrequency="4649.9"
+	ProcessorClockFrequency="3715.86"
 	>
 	<Testing>
-		<StartDateTime>Jul 06 21:01 EDT</StartDateTime>
-		<StartTestTime>1688691675</StartTestTime>
+		<StartDateTime>Jul 07 14:07 EDT</StartDateTime>
+		<StartTestTime>1688753236</StartTestTime>
 		<TestList/>
-		<EndDateTime>Jul 06 21:01 EDT</EndDateTime>
-		<EndTestTime>1688691675</EndTestTime>
+		<EndDateTime>Jul 07 14:07 EDT</EndDateTime>
+		<EndTestTime>1688753236</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

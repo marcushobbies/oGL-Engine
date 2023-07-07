@@ -17,7 +17,7 @@ Mesh ModelLoader::loadObj(const char* filePath){
     
     if(model.is_open()){
         std::vector<float> plainVertices;
-        std::vector<float> plainNormals;
+        std::vector<glm::vec3> plainNormals;
         std::vector<glm::vec2> plainTextureCoordinates;
 
         std::string line;
@@ -27,32 +27,37 @@ Mesh ModelLoader::loadObj(const char* filePath){
                 continue;
             }
 
-            std::vector<std::string> ss = splitString(line, ' ');
-            if(ss[0] == "v"){
+            /*
+            The split "Data Groups" from an obj file. 
+            The first part of the group (dataGroups[0]) will always determine what the following data is used for, either a
+            geometric vertex (v), face (f), texture coordinate (vt), normal (vn) or parameter space vertice (vp).
+            These may either contain a single number or an array of numbers split by '/' in the case of faces. (Ex: 0.625 or 7/11/3) 
+            */
+            std::vector<std::string> dataGroups = splitString(line, ' '); 
+
+            if(dataGroups[0] == "v"){
                 Vertex workingVertex = {};
 
-                plainVertices.push_back(std::stof(ss[1]));
-                plainVertices.push_back(std::stof(ss[2]));
-                plainVertices.push_back(std::stof(ss[3]));
-                workingVertex.position.x = std::stof(ss[1]);
-                workingVertex.position.y = std::stof(ss[2]);
-                workingVertex.position.z = std::stof(ss[3]);
+                plainVertices.push_back(std::stof(dataGroups[1]));
+                plainVertices.push_back(std::stof(dataGroups[2]));
+                plainVertices.push_back(std::stof(dataGroups[3]));
+                workingVertex.position.x = std::stof(dataGroups[1]);
+                workingVertex.position.y = std::stof(dataGroups[2]);
+                workingVertex.position.z = std::stof(dataGroups[3]);
 
                 loadedMesh.addVertex(workingVertex);
             }
-            if(ss[0] == "vn"){
-                plainNormals.push_back(std::stof(ss[1]));
-                plainNormals.push_back(std::stof(ss[2]));
-                plainNormals.push_back(std::stof(ss[3]));
+            if(dataGroups[0] == "vn"){
+                plainNormals.push_back(glm::vec3(std::stof(dataGroups[1]), std::stof(dataGroups[2]), std::stof(dataGroups[3])));
             }
-            if(ss[0] == "vt"){
-                plainTextureCoordinates.push_back(glm::vec2(std::stof(ss[1]), std::stof(ss[2])));
+            if(dataGroups[0] == "vt"){
+                plainTextureCoordinates.push_back(glm::vec2(std::stof(dataGroups[1]), std::stof(dataGroups[2])));
             }
             //SWITCH TO INDICES MODE, Start using the Vertex class. This must always be done last.
-            if(ss[0] == "f"){
+            if(dataGroups[0] == "f"){
                 Face face = {};
                 int currentVertex = 0;
-                for(std::string p : ss){
+                for(std::string p : dataGroups){
                     if(p == "f"){
                         continue;
                     }
@@ -63,6 +68,7 @@ Mesh ModelLoader::loadObj(const char* filePath){
                     
                     Vertex modifiedVertex = loadedMesh.getVertex(vertexIndice);
                     modifiedVertex.textureCoords = plainTextureCoordinates[textureIndice];
+                    modifiedVertex.normal = plainNormals[normalIndice];
 
                     face.vertices[currentVertex] = modifiedVertex;
 

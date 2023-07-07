@@ -173,7 +173,7 @@ int main(){
         newPos.x = 2*sin((float)glfwGetTime()*3);
         newPos.z = 2*cos((float)glfwGetTime()*3);
 
-        testObject2.setPos(newPos);
+        testObject.setPos(newPos);
 
 
         glBindVertexArray(0);

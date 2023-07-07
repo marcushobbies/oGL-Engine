@@ -75,11 +75,14 @@ void Object::initObject(float vertices[], size_t verticesSize, unsigned int indi
     Logger(output.str().c_str(), false);
     
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0); //Appending data into the vertex shader at location = 0
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0); //Appending data into the vertex shader at location = 0
     glEnableVertexAttribArray(0);  
 
-    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3*sizeof(float))); //Texture data at location = 1
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float))); //Texture data at location = 1
     glEnableVertexAttribArray(1);
+    
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float))); //Normal data at location = 2
+    glEnableVertexAttribArray(2);
 
     //Unbind
     glBindBuffer(GL_ARRAY_BUFFER, 0); 
@@ -151,7 +154,20 @@ void Object::initTextures(unsigned int textures, ...){
     //texture = textureIds;
     textureCount = textures;
 
+    calculateLightingFromScene(); //Debug code, should be called by the scene which the object is in whenever lighting conditions change, at the moment scenes are not implemented.
+
     glBindVertexArray(0);
+}
+
+void Object::calculateLightingFromScene(){
+    //Ambient Scene Lighting, to be determined by a scene's skybox
+    float ambientLightStrength = 0.0f;
+    shaderProgram.setVec3("ambientLightColor", ambientLightStrength, ambientLightStrength, ambientLightStrength);
+    //Temporary Light source position
+    shaderProgram.setVec3("lightPos", 0.0f, 0.0f, 0.0f);
+    shaderProgram.setVec3("lightColor", 1.0f, 0.0f, 1.0f);
+
+
 }
 
 void Object::update(){
