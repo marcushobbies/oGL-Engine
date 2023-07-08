@@ -405,4 +405,14 @@ src/CMakeFiles/oGL.dir/render/Object.cpp.o: \
  /usr/include/c++/12/bits/ranges_util.h \
  /usr/include/c++/12/pstl/glue_algorithm_defs.h \
  /usr/include/c++/12/pstl/execution_defs.h \
- /home/marcus/code/oGL/include/stb_image.h /usr/include/c++/12/stdlib.h
+ /home/marcus/code/oGL/include/stb_image.h /usr/include/c++/12/stdlib.h \
+ /home/marcus/code/oGL/include/Camera.h \
+ /home/marcus/code/oGL/include/render/Mesh.h \
+ /home/marcus/code/oGL/include/render/Vertex.h \
+ /usr/include/c++/12/iomanip /usr/include/c++/12/locale \
+ /usr/include/c++/12/bits/locale_facets_nonio.h /usr/include/c++/12/ctime \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/12/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/12/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/12/bits/locale_conv.h \
+ /usr/include/c++/12/bits/quoted_string.h

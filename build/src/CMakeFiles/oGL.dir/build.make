@@ -167,6 +167,34 @@ src/CMakeFiles/oGL.dir/models/ModelLoader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/oGL.dir/models/ModelLoader.cpp.s"
 	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcus/code/oGL/src/models/ModelLoader.cpp -o CMakeFiles/oGL.dir/models/ModelLoader.cpp.s
 
+src/CMakeFiles/oGL.dir/engine/Scene.cpp.o: src/CMakeFiles/oGL.dir/flags.make
+src/CMakeFiles/oGL.dir/engine/Scene.cpp.o: /home/marcus/code/oGL/src/engine/Scene.cpp
+src/CMakeFiles/oGL.dir/engine/Scene.cpp.o: src/CMakeFiles/oGL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object src/CMakeFiles/oGL.dir/engine/Scene.cpp.o"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/oGL.dir/engine/Scene.cpp.o -MF CMakeFiles/oGL.dir/engine/Scene.cpp.o.d -o CMakeFiles/oGL.dir/engine/Scene.cpp.o -c /home/marcus/code/oGL/src/engine/Scene.cpp
+
+src/CMakeFiles/oGL.dir/engine/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/oGL.dir/engine/Scene.cpp.i"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcus/code/oGL/src/engine/Scene.cpp > CMakeFiles/oGL.dir/engine/Scene.cpp.i
+
+src/CMakeFiles/oGL.dir/engine/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/oGL.dir/engine/Scene.cpp.s"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcus/code/oGL/src/engine/Scene.cpp -o CMakeFiles/oGL.dir/engine/Scene.cpp.s
+
+src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o: src/CMakeFiles/oGL.dir/flags.make
+src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o: /home/marcus/code/oGL/src/debugGame/DebugScene.cpp
+src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o: src/CMakeFiles/oGL.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o -MF CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o.d -o CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o -c /home/marcus/code/oGL/src/debugGame/DebugScene.cpp
+
+src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.i"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/marcus/code/oGL/src/debugGame/DebugScene.cpp > CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.i
+
+src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.s"
+	cd /home/marcus/code/oGL/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/marcus/code/oGL/src/debugGame/DebugScene.cpp -o CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.s
+
 # Object files for target oGL
 oGL_OBJECTS = \
 "CMakeFiles/oGL.dir/main.cpp.o" \
@@ -175,7 +203,9 @@ oGL_OBJECTS = \
 "CMakeFiles/oGL.dir/render/Camera.cpp.o" \
 "CMakeFiles/oGL.dir/render/Mesh.cpp.o" \
 "CMakeFiles/oGL.dir/render/Object.cpp.o" \
-"CMakeFiles/oGL.dir/models/ModelLoader.cpp.o"
+"CMakeFiles/oGL.dir/models/ModelLoader.cpp.o" \
+"CMakeFiles/oGL.dir/engine/Scene.cpp.o" \
+"CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o"
 
 # External object files for target oGL
 oGL_EXTERNAL_OBJECTS =
@@ -187,6 +217,8 @@ src/oGL: src/CMakeFiles/oGL.dir/render/Camera.cpp.o
 src/oGL: src/CMakeFiles/oGL.dir/render/Mesh.cpp.o
 src/oGL: src/CMakeFiles/oGL.dir/render/Object.cpp.o
 src/oGL: src/CMakeFiles/oGL.dir/models/ModelLoader.cpp.o
+src/oGL: src/CMakeFiles/oGL.dir/engine/Scene.cpp.o
+src/oGL: src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o
 src/oGL: src/CMakeFiles/oGL.dir/build.make
 src/oGL: /usr/local/lib/libglfw3.a
 src/oGL: /usr/lib/x86_64-linux-gnu/libGLEW.so
@@ -195,7 +227,7 @@ src/oGL: /usr/lib/x86_64-linux-gnu/librt.a
 src/oGL: /usr/lib/x86_64-linux-gnu/libm.so
 src/oGL: /usr/lib/x86_64-linux-gnu/libX11.so
 src/oGL: src/CMakeFiles/oGL.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable oGL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable oGL"
 	cd /home/marcus/code/oGL/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/oGL.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

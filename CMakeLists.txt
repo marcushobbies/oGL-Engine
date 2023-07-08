@@ -28,6 +28,8 @@ set(CMAKE_CXX_LINK_EXECUTABLE "${CMAKE_CXX_LINK_EXECUTABLE} -ldl")
 
 set(SOURCES main.cpp ${CMAKE_SOURCE_DIR}/include)
 
+#set(OpenGL_GL_PREFERENCE GLVND)
+
 #CPP Files
 set(SOURCE_FILES main.cpp)
 add_subdirectory(src)

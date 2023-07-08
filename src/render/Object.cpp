@@ -1,5 +1,16 @@
 #include "Object.h"
 
+Object::Object(){
+    pos = glm::vec3(0.0f);
+    rot = glm::vec3(1.0f);
+    scale_ = glm::vec3(1.0f);
+    angle_ = 0;
+
+    model = glm::mat4(1.0f);
+    view = glm::mat4(1.0f);
+    projection = glm::mat4(1.0f);
+}
+
 Object::Object(glm::vec3 position, glm::vec3 rotation){
     pos = position;
     rot = rotation;
@@ -89,6 +100,49 @@ void Object::initObject(float vertices[], size_t verticesSize, unsigned int indi
     glBindVertexArray(0); 
 }
 
+void Object::initObject(Mesh mesh){
+    verts = mesh.getMesh();
+    vertsSize = mesh.getMeshSize();
+    inds = mesh.getIndices();
+    indSize = mesh.getIndicesSize();
+    usingEBO = true;
+
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
+    glGenVertexArrays(1, &VAO); 
+
+    glBindVertexArray(VAO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, vertsSize, verts, GL_STATIC_DRAW); //Binding data to GL_ARRAY BUFFER
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indSize, inds, GL_STATIC_DRAW);
+
+    int32_t bsize = 0;
+    glGetBufferParameteriv(GL_ARRAY_BUFFER, GL_BUFFER_SIZE, &bsize);
+
+    // Check if buffer is empty.
+    std::stringstream output;
+    output << bsize;
+    Logger(output.str().c_str(), false);
+    
+
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0); //Appending data into the vertex shader at location = 0
+    glEnableVertexAttribArray(0);  
+
+    glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float))); //Texture data at location = 1
+    glEnableVertexAttribArray(1);
+    
+    glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3*sizeof(float))); //Normal data at location = 2
+    glEnableVertexAttribArray(2);
+
+    //Unbind
+    glBindBuffer(GL_ARRAY_BUFFER, 0); 
+    glBindVertexArray(0); 
+}
+
+
 void Object::initShaders(unsigned int shaders, ...){
     shaderProgram.generateProgram();
     va_list shaderPaths;
@@ -154,19 +208,21 @@ void Object::initTextures(unsigned int textures, ...){
     //texture = textureIds;
     textureCount = textures;
 
-    calculateLightingFromScene(); //Debug code, should be called by the scene which the object is in whenever lighting conditions change, at the moment scenes are not implemented.
+    //calculateLightingFromScene(); //Debug code, should be called by the scene which the object is in whenever lighting conditions change, at the moment scenes are not implemented.
 
     glBindVertexArray(0);
 }
 
-void Object::calculateLightingFromScene(){
+void Object::calculateLightingFromScene(Camera camera, float ambientLightStrength){
     //Ambient Scene Lighting, to be determined by a scene's skybox
-    float ambientLightStrength = 0.0f;
-    shaderProgram.setVec3("ambientLightColor", ambientLightStrength, ambientLightStrength, ambientLightStrength);
-    //Temporary Light source position
-    shaderProgram.setVec3("lightPos", 0.0f, 0.0f, 0.0f);
-    shaderProgram.setVec3("lightColor", 1.0f, 0.0f, 1.0f);
+    glUseProgram(shaderProgram.getProgramId());
 
+    shaderProgram.setVec3("ambientLightColor", ambientLightStrength, ambientLightStrength, ambientLightStrength);
+    GLuint ambientLightValue = glGetUniformLocation(shaderProgram.getProgramId(), "ambientLightColor");
+    //Temporary Light source position
+    shaderProgram.setVec3("lightPos", 0.0f, 1.0f, 0.0f); //TODO: Move light positions and colours to be defined in the scene, not here in the object file.
+    shaderProgram.setVec3("lightColor", 1.0f, 0.0f, 1.0f);
+    shaderProgram.setVec3("viewPos", camera.getPos()); 
 
 }
 

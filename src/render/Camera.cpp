@@ -1,10 +1,12 @@
 #include "Camera.h"
 
-Camera::Camera(glm::vec3 position, glm::vec3 target){
+Camera::Camera(glm::vec3 position, glm::vec3 target, glm::vec2 resolution){
     pos = position;
     facing = target;
     direction = glm::normalize(pos-facing);
     globalUp = glm::vec3(0.0f, 1.0f, 0.0f);
+
+    projection = glm::perspective(glm::radians(45.0f), (float)resolution.x/(float)resolution.y, 0.1f, 100.0f); //These values are fixed for now, may be accessible later.
 
     right = glm::normalize(glm::cross(globalUp, direction));
     up = glm::cross(direction, right);

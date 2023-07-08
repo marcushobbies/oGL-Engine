@@ -33,5 +33,15 @@
   "directory": "/home/marcus/code/oGL/build/src",
   "command": "/usr/bin/g++  -I/home/marcus/code/oGL/include -g -std=gnu++20 -o CMakeFiles/oGL.dir/models/ModelLoader.cpp.o -c /home/marcus/code/oGL/src/models/ModelLoader.cpp",
   "file": "/home/marcus/code/oGL/src/models/ModelLoader.cpp"
+},
+{
+  "directory": "/home/marcus/code/oGL/build/src",
+  "command": "/usr/bin/g++  -I/home/marcus/code/oGL/include -g -std=gnu++20 -o CMakeFiles/oGL.dir/engine/Scene.cpp.o -c /home/marcus/code/oGL/src/engine/Scene.cpp",
+  "file": "/home/marcus/code/oGL/src/engine/Scene.cpp"
+},
+{
+  "directory": "/home/marcus/code/oGL/build/src",
+  "command": "/usr/bin/g++  -I/home/marcus/code/oGL/include -g -std=gnu++20 -o CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o -c /home/marcus/code/oGL/src/debugGame/DebugScene.cpp",
+  "file": "/home/marcus/code/oGL/src/debugGame/DebugScene.cpp"
 }
 ]

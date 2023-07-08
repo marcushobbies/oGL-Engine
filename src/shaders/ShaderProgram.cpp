@@ -100,6 +100,15 @@ void ShaderProgram::setVec4(const char* name, float x, float y, float z, float w
 		glUniform4f(locationPath, x, y, z, w);
 }
 
+void ShaderProgram::setVec3(const char* name, glm::vec3 pos) const{
+		int locationPath = glGetUniformLocation(programId, name);
+		glUniform3f(locationPath, pos.x, pos.y, pos.z);
+}
+void ShaderProgram::setVec4(const char* name, glm::vec4 pos) const{
+		int locationPath = glGetUniformLocation(programId, name);
+		glUniform4f(locationPath, pos.x, pos.y, pos.z, pos.w);
+}
+
 void ShaderProgram::setMatrix4f(const char* name, GLfloat* val) const{
 		int locationPath = glGetUniformLocation(programId, name);
 		glUniformMatrix4fv(locationPath, 1, GL_FALSE, val);

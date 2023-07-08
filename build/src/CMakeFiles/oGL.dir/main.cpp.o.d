@@ -417,4 +417,6 @@ src/CMakeFiles/oGL.dir/main.cpp.o: /home/marcus/code/oGL/src/main.cpp \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/emmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/xmmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/mmintrin.h \
- /usr/lib/gcc/x86_64-linux-gnu/12/include/mm_malloc.h
+ /usr/lib/gcc/x86_64-linux-gnu/12/include/mm_malloc.h \
+ /home/marcus/code/oGL/include/debugGame/DebugScene.h \
+ /home/marcus/code/oGL/include/engine/Scene.h

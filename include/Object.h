@@ -14,17 +14,21 @@
 #include "Logger.h"
 #include "ShaderProgram.h"
 #include "stb_image.h"
+#include "Camera.h"
+#include "render/Mesh.h"
 
 class Object{
     public:
+        Object();
         Object(glm::vec3 position, glm::vec3 rotation);
 
         void initObject(float vertices[], size_t size);
         void initObject(float vertices[], size_t verticesSize, unsigned int indices[], size_t indicesSize);
+        void initObject(Mesh mesh);
         void initShaders(unsigned int shaders, ...);
         void initTextures(unsigned int textures, ...);
         
-        void calculateLightingFromScene();
+        void calculateLightingFromScene(Camera camera, float ambientLightStrength);
 
         void update();
         void render(glm::mat4 view_, glm::mat4 projection_);

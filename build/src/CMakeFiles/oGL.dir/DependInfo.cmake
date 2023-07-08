@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/marcus/code/oGL/src/debugGame/DebugScene.cpp" "src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o" "gcc" "src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o.d"
+  "/home/marcus/code/oGL/src/engine/Scene.cpp" "src/CMakeFiles/oGL.dir/engine/Scene.cpp.o" "gcc" "src/CMakeFiles/oGL.dir/engine/Scene.cpp.o.d"
   "/home/marcus/code/oGL/src/main.cpp" "src/CMakeFiles/oGL.dir/main.cpp.o" "gcc" "src/CMakeFiles/oGL.dir/main.cpp.o.d"
   "/home/marcus/code/oGL/src/models/ModelLoader.cpp" "src/CMakeFiles/oGL.dir/models/ModelLoader.cpp.o" "gcc" "src/CMakeFiles/oGL.dir/models/ModelLoader.cpp.o.d"
   "/home/marcus/code/oGL/src/render/Camera.cpp" "src/CMakeFiles/oGL.dir/render/Camera.cpp.o" "gcc" "src/CMakeFiles/oGL.dir/render/Camera.cpp.o.d"

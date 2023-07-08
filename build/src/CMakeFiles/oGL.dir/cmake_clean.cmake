@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o"
+  "CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o.d"
+  "CMakeFiles/oGL.dir/engine/Scene.cpp.o"
+  "CMakeFiles/oGL.dir/engine/Scene.cpp.o.d"
   "CMakeFiles/oGL.dir/main.cpp.o"
   "CMakeFiles/oGL.dir/main.cpp.o.d"
   "CMakeFiles/oGL.dir/models/ModelLoader.cpp.o"

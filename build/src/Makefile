@@ -140,6 +140,54 @@ oGL/fast:
 	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/build
 .PHONY : oGL/fast
 
+debugGame/DebugScene.o: debugGame/DebugScene.cpp.o
+.PHONY : debugGame/DebugScene.o
+
+# target to build an object file
+debugGame/DebugScene.cpp.o:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.o
+.PHONY : debugGame/DebugScene.cpp.o
+
+debugGame/DebugScene.i: debugGame/DebugScene.cpp.i
+.PHONY : debugGame/DebugScene.i
+
+# target to preprocess a source file
+debugGame/DebugScene.cpp.i:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.i
+.PHONY : debugGame/DebugScene.cpp.i
+
+debugGame/DebugScene.s: debugGame/DebugScene.cpp.s
+.PHONY : debugGame/DebugScene.s
+
+# target to generate assembly for a file
+debugGame/DebugScene.cpp.s:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.s
+.PHONY : debugGame/DebugScene.cpp.s
+
+engine/Scene.o: engine/Scene.cpp.o
+.PHONY : engine/Scene.o
+
+# target to build an object file
+engine/Scene.cpp.o:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/Scene.cpp.o
+.PHONY : engine/Scene.cpp.o
+
+engine/Scene.i: engine/Scene.cpp.i
+.PHONY : engine/Scene.i
+
+# target to preprocess a source file
+engine/Scene.cpp.i:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/Scene.cpp.i
+.PHONY : engine/Scene.cpp.i
+
+engine/Scene.s: engine/Scene.cpp.s
+.PHONY : engine/Scene.s
+
+# target to generate assembly for a file
+engine/Scene.cpp.s:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/Scene.cpp.s
+.PHONY : engine/Scene.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -318,6 +366,12 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... oGL"
+	@echo "... debugGame/DebugScene.o"
+	@echo "... debugGame/DebugScene.i"
+	@echo "... debugGame/DebugScene.s"
+	@echo "... engine/Scene.o"
+	@echo "... engine/Scene.i"
+	@echo "... engine/Scene.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <glm/glm.hpp>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 #include <fstream>
@@ -26,6 +27,8 @@ class ShaderProgram {
         void setFloat(const char* name, float val) const;
         void setVec3(const char* name, float x, float y, float z) const;
         void setVec4(const char* name, float x, float y, float z, float w) const;
+        void setVec3(const char* name, glm::vec3 pos) const;
+        void setVec4(const char* name, glm::vec4 pos) const;
         void setMatrix4f(const char* name, GLfloat* val) const;
     private:
         int programId = 0;

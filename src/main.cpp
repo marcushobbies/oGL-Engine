@@ -22,6 +22,8 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 
+#include "debugGame/DebugScene.h"
+
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);  
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
@@ -31,56 +33,14 @@ const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
 
-Camera cam = Camera(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+Camera cam = Camera(glm::vec3(0.0f, 0.0f, 3.0f), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec2(SCR_WIDTH, SCR_HEIGHT));
 int width, height, nrChannels;
 
 float lastX = SCR_WIDTH/2.0, lastY = SCR_HEIGHT/2.0;
 
 bool firstMouse = true;
 
-float vertices[] = {
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
 
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
-
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
-    };
 
 int main(){
 
@@ -115,37 +75,14 @@ int main(){
 
 
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);  
-    
-    ModelLoader loader;
-    Mesh mesh = loader.loadObj("assets/Skull.obj");
-    std::cout << std::fixed;
-    std::cout << std::setprecision(3);
-    /*for(int i = 0; i < mesh.getMeshSize()/sizeof(float[1]); i++){
-        if(i % 5 == 0){
-            std::cout << std::endl;
-        }
-
-        std::cout << mesh.getMesh()[i] << ", ";
-    }
-    std::cout << std::endl;*/
-
-    Object testObject = Object(glm::vec3(0.0f), glm::vec3(1.0f));
-    testObject.initShaders(2, "assets/shaders/vertexShader.vs", "assets/shaders/fragmentShader.fs");
-    testObject.initObject(mesh.getMesh(), mesh.getMeshSize(), mesh.getIndices(), mesh.getIndicesSize());
-    testObject.initTextures(1, "assets/Skull.png");
-
-    Object testObject2 = Object(glm::vec3(0.0f, 1.0f, 0.0f), glm::vec3(1.0f));
-    testObject2.initShaders(2, "assets/shaders/vertexShader.vs", "assets/shaders/fragmentShader.fs");
-    testObject2.initObject(vertices, sizeof(vertices));
-    testObject2.initTextures(1, "assets/texture.png");
-
 
     float deltaTime = 0.0f;
     float lastFrame = 0.0f;
     int fps = 0;
 
-    glm::mat4 projection = glm::mat4(1.0f);
-    glm::mat4 view = glm::mat4(1.0f);
+    DebugScene debugScene = DebugScene();
+    debugScene.init();
+    
     while(!glfwWindowShouldClose(window)){
         glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -159,30 +96,20 @@ int main(){
 
         //PROJECTION
         //Creating View Frustum Clipped from 0.1f to 100.0f and a 45deg FOV
-        projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.0f);
+        //projection = glm::perspective(glm::radians(45.0f), (float)SCR_WIDTH/(float)SCR_HEIGHT, 0.1f, 100.0f);
 
-        view = cam.getView();
         cam.loop(window, deltaTime);
 
-        testObject.render(view, projection);
-        testObject.update();
-
-        //testObject2.render(view, projection);
-        testObject2.update();
-        glm::vec3 newPos = testObject.getPos();
-        newPos.x = 2*sin((float)glfwGetTime()*3);
-        newPos.z = 2*cos((float)glfwGetTime()*3);
-
-        testObject.setPos(newPos);
-
+        
+        debugScene.update();
+        debugScene.render(cam);
 
         glBindVertexArray(0);
         
         glfwSwapBuffers(window);
         glfwPollEvents();    
     }
-    testObject.cleanUp();
-    testObject2.cleanUp();
+    debugScene.cleanUp();
 
     glfwTerminate();
     return 0;
@@ -195,7 +122,10 @@ void key_callback(GLFWwindow* window, int key, int scancode, int action, int mod
     if(key == GLFW_KEY_ESCAPE && mods != GLFW_MOD_CONTROL){
         glfwSetWindowShouldClose(window, true);
     }
-    
+    if(key == GLFW_KEY_LEFT_ALT){
+        glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);  
+    }
+
     if(key == GLFW_KEY_X && action == GLFW_PRESS){
         if(!wireframeMode){
             glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
