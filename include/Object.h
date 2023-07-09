@@ -10,12 +10,14 @@
 #include <stdarg.h>
 #include <sstream>
 #include <string.h>
+#include <vector>
 
 #include "Logger.h"
 #include "ShaderProgram.h"
 #include "stb_image.h"
 #include "Camera.h"
 #include "render/Mesh.h"
+#include "engine/Light.h"
 
 class Object{
     public:
@@ -28,10 +30,10 @@ class Object{
         void initShaders(unsigned int shaders, ...);
         void initTextures(unsigned int textures, ...);
         
-        void calculateLightingFromScene(Camera camera, float ambientLightStrength);
+        void calculateLightingFromScene(Camera camera, float ambientLightStrength, std::vector<Light> lights, int numberOfLights);
 
-        void update();
-        void render(glm::mat4 view_, glm::mat4 projection_);
+        virtual void update();
+        virtual void render(glm::mat4 view_, glm::mat4 projection_);
 
         void cleanUp();
         
@@ -47,7 +49,7 @@ class Object{
         unsigned int getEBO(){return EBO;};
         unsigned int getVAO(){return VAO;};
 
-    private:
+    protected:
         float angle_;
         glm::vec3 pos, rot, scale_;
         glm::mat4 model, projection, view;

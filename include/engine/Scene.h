@@ -2,8 +2,11 @@
 
 #include <vector>
 
+#include "render/Mesh.h"
 #include "Object.h"
 #include "Camera.h"
+#include "engine/Light.h"
+#include "engine/LightDebugObject.h"
 
 class Scene {
     public:
@@ -23,7 +26,11 @@ class Scene {
 
     protected:
         std::vector<Object> objects;
+        std::vector<Light> lights;
+        std::vector<LightDebugObject> lightDebugObjects;
 
         unsigned long maxObjectCount;
         float ambientLightStrength;
+
+        const bool drawLightObjects = true;
 };

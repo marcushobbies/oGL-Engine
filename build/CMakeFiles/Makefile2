@@ -96,12 +96,12 @@ src/clean: src/CMakeFiles/oGL.dir/clean
 src/CMakeFiles/oGL.dir/all:
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/depend
 	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target oGL"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/marcus/code/oGL/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10,11 "Built target oGL"
 .PHONY : src/CMakeFiles/oGL.dir/all
 
 # Build rule for subdir invocation for target.
 src/CMakeFiles/oGL.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcus/code/oGL/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcus/code/oGL/build/CMakeFiles 11
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/oGL.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/marcus/code/oGL/build/CMakeFiles 0
 .PHONY : src/CMakeFiles/oGL.dir/rule

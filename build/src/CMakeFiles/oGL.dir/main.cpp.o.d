@@ -412,6 +412,7 @@ src/CMakeFiles/oGL.dir/main.cpp.o: /home/marcus/code/oGL/src/main.cpp \
  /home/marcus/code/oGL/include/stb_image.h /usr/include/c++/12/stdlib.h \
  /home/marcus/code/oGL/include/render/Mesh.h \
  /home/marcus/code/oGL/include/render/Vertex.h \
+ /home/marcus/code/oGL/include/engine/Light.h \
  /home/marcus/code/oGL/include/render/ModelLoader.h \
  /home/marcus/code/oGL/include/stb_image.h /usr/include/c++/12/math.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/emmintrin.h \
@@ -419,4 +420,5 @@ src/CMakeFiles/oGL.dir/main.cpp.o: /home/marcus/code/oGL/src/main.cpp \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/mmintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/mm_malloc.h \
  /home/marcus/code/oGL/include/debugGame/DebugScene.h \
- /home/marcus/code/oGL/include/engine/Scene.h
+ /home/marcus/code/oGL/include/engine/Scene.h \
+ /home/marcus/code/oGL/include/engine/LightDebugObject.h

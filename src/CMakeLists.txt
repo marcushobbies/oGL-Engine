@@ -9,6 +9,7 @@ add_executable(${TARGET}
   render/Object.cpp
   models/ModelLoader.cpp
   engine/Scene.cpp
+  engine/LightDebugObject.cpp
   debugGame/DebugScene.cpp
 )
 

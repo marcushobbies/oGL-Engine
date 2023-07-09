@@ -164,6 +164,30 @@ debugGame/DebugScene.cpp.s:
 	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/debugGame/DebugScene.cpp.s
 .PHONY : debugGame/DebugScene.cpp.s
 
+engine/LightDebugObject.o: engine/LightDebugObject.cpp.o
+.PHONY : engine/LightDebugObject.o
+
+# target to build an object file
+engine/LightDebugObject.cpp.o:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/LightDebugObject.cpp.o
+.PHONY : engine/LightDebugObject.cpp.o
+
+engine/LightDebugObject.i: engine/LightDebugObject.cpp.i
+.PHONY : engine/LightDebugObject.i
+
+# target to preprocess a source file
+engine/LightDebugObject.cpp.i:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/LightDebugObject.cpp.i
+.PHONY : engine/LightDebugObject.cpp.i
+
+engine/LightDebugObject.s: engine/LightDebugObject.cpp.s
+.PHONY : engine/LightDebugObject.s
+
+# target to generate assembly for a file
+engine/LightDebugObject.cpp.s:
+	cd /home/marcus/code/oGL/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/oGL.dir/build.make src/CMakeFiles/oGL.dir/engine/LightDebugObject.cpp.s
+.PHONY : engine/LightDebugObject.cpp.s
+
 engine/Scene.o: engine/Scene.cpp.o
 .PHONY : engine/Scene.o
 
@@ -369,6 +393,9 @@ help:
 	@echo "... debugGame/DebugScene.o"
 	@echo "... debugGame/DebugScene.i"
 	@echo "... debugGame/DebugScene.s"
+	@echo "... engine/LightDebugObject.o"
+	@echo "... engine/LightDebugObject.i"
+	@echo "... engine/LightDebugObject.s"
 	@echo "... engine/Scene.o"
 	@echo "... engine/Scene.i"
 	@echo "... engine/Scene.s"

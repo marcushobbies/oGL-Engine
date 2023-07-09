@@ -213,18 +213,58 @@ void Object::initTextures(unsigned int textures, ...){
     glBindVertexArray(0);
 }
 
-void Object::calculateLightingFromScene(Camera camera, float ambientLightStrength){
+float deltaTime = 0;
+float lastFrame = 0;
+glm::vec3 lightPos = glm::vec3(0.0f, 1.0f, 0.0f);
+
+void Object::calculateLightingFromScene(Camera camera, float ambientLightStrength, std::vector<Light> lights, int numberOfLights){
     //Ambient Scene Lighting, to be determined by a scene's skybox
     glUseProgram(shaderProgram.getProgramId());
 
     shaderProgram.setVec3("ambientLightColor", ambientLightStrength, ambientLightStrength, ambientLightStrength);
-    GLuint ambientLightValue = glGetUniformLocation(shaderProgram.getProgramId(), "ambientLightColor");
+    shaderProgram.setInt("numberPointLights", numberOfLights);
+    
+    for(int i = 0; i < numberOfLights; i++){
+        std::string lightIndex = "pointLights[";
+        lightIndex += std::to_string(i);
+        lightIndex += "]";
+        std::string lightPos = lightIndex + ".position";
+        std::string lightColour = lightIndex + ".colour";
+        std::string lightSpecularStrength = lightIndex + ".specularStrength";
+
+        shaderProgram.setVec3(lightPos.c_str(), lights[i].position);
+        shaderProgram.setVec3(lightColour.c_str(), lights[i].colour);
+        shaderProgram.setFloat(lightSpecularStrength.c_str(), lights[i].specularStrength);
+    }
+    shaderProgram.setVec3("material.ambient", 1.0f, 0.5f, 0.31f);
+    shaderProgram.setInt("material.diffuse", 0);
+    shaderProgram.setVec3("material.diffuseOld", 1.0f, 0.5f, 0.31f);
+    shaderProgram.setVec3("material.specular", glm::vec3(0.5f));
+    shaderProgram.setFloat("material.shininess", 32.0f);
+
+    /*
+    shaderProgram.setVec3("pointLights[1].colour", 0.0f, 1.0f, 1.0f);
+    shaderProgram.setVec3("pointLights[1].position", 0.0f, -1.0f, 0.0f);
+    shaderProgram.setFloat("pointLights[1].specularStrength", 0.5f);
+    */
+
     //Temporary Light source position
-    shaderProgram.setVec3("lightPos", 0.0f, 1.0f, 0.0f); //TODO: Move light positions and colours to be defined in the scene, not here in the object file.
+    /*
+    float currentFrame = glfwGetTime();
+    deltaTime = currentFrame - lastFrame;
+    lastFrame = currentFrame;
+
+
+    glm::vec3 newPos = lightPos;
+    newPos.x = 2*sin((float)glfwGetTime()*3);
+    newPos.z = 2*cos((float)glfwGetTime()*3);
+
+    shaderProgram.setVec3("lightPos", newPos); //TODO: Move light positions and colours to be defined in the scene, not here in the object file.
     shaderProgram.setVec3("lightColor", 1.0f, 0.0f, 1.0f);
     shaderProgram.setVec3("viewPos", camera.getPos()); 
-
+    */
 }
+
 
 void Object::update(){
 

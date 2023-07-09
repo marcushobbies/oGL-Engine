@@ -8,7 +8,7 @@
 #include "render/Mesh.h"
 #include "render/ModelLoader.h"
 #include "ShaderProgram.h"
-
+#include "engine/Light.h"
 class DebugScene : public Scene {
 
     public:
